@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <style>
+      button {
+        border: none;
+        background-color: green;
+        color: white;
+        padding: 5px 10px;
+        cursor: pointer;
+        margin-bottom: 30px;
+      }
+
+      .stretch {
+        display: block;
+        transition: padding 0.8s;
+      }
+
+      .stretch:hover {
+        padding: 15px 30px;
+      }
+
+      .shadow {
+        display: block;
+        box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3);
+        transition: box-shadow 0.3s;
+      }
+
+      .shadow:active {
+        box-shadow: none;
+        transform: translate(3px, 3px);
+      }
+
+      .numbers {
+        margin: 0 5px;
+        transition: padding 0.1s;
+      }
+
+      .numbers:hover {
+        padding: 5px 15px;
+      }
+    </style>
+  </head>
+  <body>
+    <button class="stretch">Stretch</button>
+    <button class="shadow">Shadow</button>
+    <button class="numbers">One</button>
+    <button class="numbers">Two</button>
+    <button class="numbers">Three</button>
+  </body>
+</html>
