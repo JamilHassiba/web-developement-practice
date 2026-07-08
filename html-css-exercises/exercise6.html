@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Exercise 6</title>
+    <style>
+      * {
+        margin: 0;
+      }
+
+      .container {
+        width: 200px;
+        margin: 50%;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+      }
+
+      .cat {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        object-position: center;
+      }
+
+      .name, .mutuals-container, .add-btn {
+        font-family: Arial;
+        margin-left: 8px;
+      }
+
+      .name {
+        font-size: 18px;
+        font-weight: bold;
+        margin-top: 5px;
+      }
+
+      .mutuals-container {
+        margin-top: 5px;
+        margin-bottom: 8px;
+      }
+
+      .mutuals {
+        color: rgb(100, 99, 99);
+        display: inline-block;
+        margin-left: 3px;
+        vertical-align: middle;
+      }
+
+      .mutuals-pfp {
+        width: 30px;
+        height: 30px;
+        object-fit: cover;
+        border-radius: 50%;
+        display: inline-block;
+        vertical-align: middle;
+      }
+
+      .add-btn {
+        border: none;
+        margin-bottom: 8px;
+        background-color: rgb(51, 129, 245);
+        color: white;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <img class="cat" src="cat.png">
+      <p class="name">Oliver</p>
+      <div class="mutuals-container">
+        <img class="mutuals-pfp" src="cat.png">
+        <p class="mutuals">2 mutual friends</p>
+      </div>
+      <button class="add-btn">Add Friend</button>
+    </div>
+  </body>
+</html>
