@@ -26,7 +26,6 @@
     margin-left: 85px;
     margin-right: 10px;
     max-width: 490px;
-    position: relative;
 }
 
 .right-section {
@@ -51,39 +50,55 @@
     border-radius: 50%;
     padding: 5px 6px 3px 6px;
     margin-top: 3px;
+    cursor: pointer;
 }
 
 .three-lines-button:hover {
     background-color: rgb(214, 214, 214);
-    transition: background-color 0.2s;
+    transition: background-color 0.15s;
 }
 
 .three-lines-icon {
     height: 18px;
 }
 
-.search-container {
-    position: relative;
-    display: flex;
-    flex: 1;
-    margin-right: 10px;
-}
-
 .search-bar {
-    border: 1px, solid, rgb(210, 210, 210);
-    border-radius: 20px;
+    border: 1px solid rgb(210, 210, 210);
+    border-radius: 20px 0 0 20px;
     padding: 8px 10px;
     flex: 1;
+    width: 0;
+}
+
+.search-bar:focus {
+    border-color: rgb(25, 105, 243);
+    outline: none;
+}
+
+.search-bar[type="text"] {
+    font-family: 'Roboto', Arial;
+    font-weight: 300;
+}
+
+.search-bar::placeholder {
+    font-family: 'Roboto', Arial;
+    font-size: 12px;
+    font-weight: 400 !important;
 }
 
 .search-button {
-    border: none;
     background-color: rgb(245, 245, 245);
     border: 1px solid rgb(210, 210, 210);
     border-radius: 0 20px 20px 0;
+    border-left: none;
     padding: 3px 16px;
-    position: absolute;
-    right: 0;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.search-button:hover {
+    background-color: rgb(234, 234, 234);
+    transition: background-color 0.15s;
 }
 
 .search-icon {
@@ -95,6 +110,16 @@
     background-color: rgb(245, 245, 245);
     border-radius: 50%;
     padding: 5px 6px 1px 6px;
+    cursor: pointer;
+}
+
+.mic-button:hover {
+    background-color: rgb(214, 214, 214);
+    transition: background-color 0.15s;
+}
+
+.mic-icon {
+    height: 22px;
 }
 
 .create-icon {
@@ -108,7 +133,7 @@
 
 .create-icon:hover {
     background-color: rgb(224, 224, 224);
-    transition: background-color 0.2s;
+    transition: background-color 0.15s;
 }
 
 .create-icon span {
@@ -122,11 +147,12 @@
     background-color: transparent;
     border-radius: 50%;
     padding: 5px 5px 1px 6px;
+    cursor: pointer;
 }
 
 .bell-button:hover {
     background-color: rgb(214, 214, 214);
-    transition: background-color 0.2s;
+    transition: background-color 0.15s;
 }
 
 .bell-icon {
@@ -138,4 +164,25 @@
     height: 25px;
     margin-right: 20px;
     cursor: pointer;
+}
+
+@media (max-width: 575px) {
+    .middle-section {
+        margin-left: 10px;
+    }
+}
+
+@media (max-width: 500px) {
+    .create-icon {
+        display: none;
+    }
+
+    .right-section {
+        width: 80px;
+        justify-content: end;
+    }
+
+    .bell-button {
+        margin-right: 10px;
+    }
 }
