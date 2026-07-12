@@ -8,20 +8,31 @@ function getComputerMove() {
         return 'scissors';
 }
 
+function updateResult(result) {
+    const resultElement = document.querySelector('.js-result');
+    if (result === 'win')
+        resultElement.innerHTML = 'You Win! :)';
+    else if (result === 'tie')
+        resultElement.innerHTML = 'Tie!';
+    else
+        resultElement.innerHTML = 'You lose :(';
+}
+
 function playMove(playerMove) {
     const computerMove = getComputerMove();
     
     if (playerMove === computerMove)
-        return 'tie';
+        updateResult('tie');
 
     else if (
         (playerMove === 'paper' && computerMove === 'rock') ||
         (playerMove === 'rock' && computerMove === 'scissors') ||
         (playerMove === 'scissors' && computerMove === 'paper')
     )
-        return 'win';
+        updateResult('win');
     
-    return 'lose';
+    else
+        updateResult('lose');
 }
 
 const emojiBtnElements = document.querySelectorAll('.js-emoji-btn');
