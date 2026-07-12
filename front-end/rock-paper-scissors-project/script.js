@@ -8,3 +8,11 @@ function computerMove() {
         return 'scissors';
     }
 }
+
+const emojiBtnElements = document.querySelectorAll('.js-emoji-btn');
+emojiBtnElements.forEach((btnElement) => {
+    btnElement.addEventListener('click', () => {
+        const playerMove = btnElement.dataset.emoji;
+        console.log(playerMove);
+    });
+});
