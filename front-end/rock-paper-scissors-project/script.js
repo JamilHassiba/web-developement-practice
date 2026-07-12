@@ -18,6 +18,29 @@ function updateResult(result) {
         resultElement.innerHTML = 'You lose :(';
 }
 
+function updateMoves(playerMove, comoputerMove) {
+    document.querySelector('.js-moves-container').hidden = false;
+
+    const playerMoveElement = document.querySelector('.js-player-move');
+    const computerMoveElement = document.querySelector('.js-computer-move');
+
+    if (playerMove === 'rock') {
+        playerMoveElement.src = "rock-emoji.png";
+    } else if (playerMove === 'paper') {
+        playerMoveElement.src = "paper-emoji.png";
+    } else {
+        playerMoveElement.src = "scissors-emoji.png";
+    }
+
+    if (comoputerMove === 'rock') {
+        computerMoveElement.src = "rock-emoji.png";
+    } else if (comoputerMove === 'paper') {
+        computerMoveElement.src = "paper-emoji.png";
+    } else {
+        computerMoveElement.src = "scissors-emoji.png";
+    }
+}
+
 function playMove(playerMove) {
     const computerMove = getComputerMove();
     
@@ -33,6 +56,8 @@ function playMove(playerMove) {
     
     else
         updateResult('lose');
+
+    updateMoves(playerMove, computerMove);
 }
 
 const emojiBtnElements = document.querySelectorAll('.js-emoji-btn');
