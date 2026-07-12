@@ -8,7 +8,7 @@ function getComputerMove() {
         return 'scissors';
 }
 
-function updateResult(result) {
+function updateResultElement(result) {
     const resultElement = document.querySelector('.js-result');
     if (result === 'win')
         resultElement.innerHTML = 'You Win! :)';
@@ -18,7 +18,7 @@ function updateResult(result) {
         resultElement.innerHTML = 'You lose :(';
 }
 
-function updateMoves(playerMove, comoputerMove) {
+function updateMovesElement(playerMove, comoputerMove) {
     document.querySelector('.js-moves-container').hidden = false;
 
     const playerMoveElement = document.querySelector('.js-player-move');
@@ -41,29 +41,72 @@ function updateMoves(playerMove, comoputerMove) {
     }
 }
 
+const score = JSON.parse(localStorage.getItem('score'));
+if (!score){
+    localStorage.setItem('score', JSON.stringify({
+        wins: 0,
+        ties: 0,
+        losses: 0
+    }));
+}
+updateScoreElement();
+
+function updateScoreElement() {
+    const score = JSON.parse(localStorage.getItem('score'));
+    const scoreElement = document.querySelector('.js-score');
+    scoreElement.textContent = `Wins: ${score.wins}, ties: ${score.ties}, Losses: ${score.losses}`;
+}
+
+function updateScore(result) {
+    const score = JSON.parse(localStorage.getItem('score'));
+
+    if (result === 'win')
+        score.wins++;
+    else if (result === 'tie')
+        score.ties++;
+    else
+        score.losses++;
+
+    localStorage.setItem('score', JSON.stringify(score));
+
+    updateScoreElement();
+}
+
 function playMove(playerMove) {
     const computerMove = getComputerMove();
     
-    if (playerMove === computerMove)
-        updateResult('tie');
-
-    else if (
+    if (playerMove === computerMove) {
+        updateResultElement('tie');
+        updateScore('tie');
+    } else if (
         (playerMove === 'paper' && computerMove === 'rock') ||
         (playerMove === 'rock' && computerMove === 'scissors') ||
         (playerMove === 'scissors' && computerMove === 'paper')
-    )
-        updateResult('win');
+    ) {
+        updateResultElement('win');
+        updateScore('win');
+    }
     
-    else
-        updateResult('lose');
+    else {
+        updateResultElement('loss');
+        updateScore('loss');
+    }
 
-    updateMoves(playerMove, computerMove);
+    updateMovesElement(playerMove, computerMove);
 }
 
-const emojiBtnElements = document.querySelectorAll('.js-emoji-btn');
-emojiBtnElements.forEach((btnElement) => {
+document.querySelectorAll('.js-emoji-btn').forEach((btnElement) => {
     btnElement.addEventListener('click', () => {
         const playerMove = btnElement.dataset.emoji;
         playMove(playerMove);
     });
+});
+
+document.querySelector('.js-reset-btn').addEventListener('click', () => {
+    localStorage.setItem('score', JSON.stringify({
+        wins: 0,
+        ties: 0,
+        losses: 0
+    }));
+    updateScoreElement();
 });
