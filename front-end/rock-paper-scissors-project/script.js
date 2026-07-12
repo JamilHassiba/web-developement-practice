@@ -21,9 +21,7 @@ function playMove(playerMove) {
     ) {
         updateResultElement('win');
         updateScore('win');
-    }
-    
-    else {
+    } else {
         updateResultElement('loss');
         updateScore('loss');
     }
@@ -74,19 +72,19 @@ function updateMovesElement(playerMove, comoputerMove) {
     const computerMoveElement = document.querySelector('.js-computer-move');
 
     if (playerMove === 'rock') {
-        playerMoveElement.src = "rock-emoji.png";
+        playerMoveElement.src = "assets/rock-emoji.png";
     } else if (playerMove === 'paper') {
-        playerMoveElement.src = "paper-emoji.png";
+        playerMoveElement.src = "assets/paper-emoji.png";
     } else {
-        playerMoveElement.src = "scissors-emoji.png";
+        playerMoveElement.src = "assets/scissors-emoji.png";
     }
 
     if (comoputerMove === 'rock') {
-        computerMoveElement.src = "rock-emoji.png";
+        computerMoveElement.src = "assets/rock-emoji.png";
     } else if (comoputerMove === 'paper') {
-        computerMoveElement.src = "paper-emoji.png";
+        computerMoveElement.src = "assets/paper-emoji.png";
     } else {
-        computerMoveElement.src = "scissors-emoji.png";
+        computerMoveElement.src = "assets/scissors-emoji.png";
     }
 }
 
