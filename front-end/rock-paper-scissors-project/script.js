@@ -1,3 +1,52 @@
+const score = JSON.parse(localStorage.getItem('score'));
+if (!score){
+    localStorage.setItem('score', JSON.stringify({
+        wins: 0,
+        ties: 0,
+        losses: 0
+    }));
+}
+updateScoreElement();
+
+function playMove(playerMove) {
+    const computerMove = getComputerMove();
+    
+    if (playerMove === computerMove) {
+        updateResultElement('tie');
+        updateScore('tie');
+    } else if (
+        (playerMove === 'paper' && computerMove === 'rock') ||
+        (playerMove === 'rock' && computerMove === 'scissors') ||
+        (playerMove === 'scissors' && computerMove === 'paper')
+    ) {
+        updateResultElement('win');
+        updateScore('win');
+    }
+    
+    else {
+        updateResultElement('loss');
+        updateScore('loss');
+    }
+
+    updateMovesElement(playerMove, computerMove);
+}
+
+document.querySelectorAll('.js-emoji-btn').forEach((btnElement) => {
+    btnElement.addEventListener('click', () => {
+        const playerMove = btnElement.dataset.emoji;
+        playMove(playerMove);
+    });
+});
+
+document.querySelector('.js-reset-btn').addEventListener('click', () => {
+    localStorage.setItem('score', JSON.stringify({
+        wins: 0,
+        ties: 0,
+        losses: 0
+    }));
+    updateScoreElement();
+});
+
 function getComputerMove() {
     const randomNum = Math.random();
     if (randomNum < 1/3)
@@ -41,16 +90,6 @@ function updateMovesElement(playerMove, comoputerMove) {
     }
 }
 
-const score = JSON.parse(localStorage.getItem('score'));
-if (!score){
-    localStorage.setItem('score', JSON.stringify({
-        wins: 0,
-        ties: 0,
-        losses: 0
-    }));
-}
-updateScoreElement();
-
 function updateScoreElement() {
     const score = JSON.parse(localStorage.getItem('score'));
     const scoreElement = document.querySelector('.js-score');
@@ -71,42 +110,3 @@ function updateScore(result) {
 
     updateScoreElement();
 }
-
-function playMove(playerMove) {
-    const computerMove = getComputerMove();
-    
-    if (playerMove === computerMove) {
-        updateResultElement('tie');
-        updateScore('tie');
-    } else if (
-        (playerMove === 'paper' && computerMove === 'rock') ||
-        (playerMove === 'rock' && computerMove === 'scissors') ||
-        (playerMove === 'scissors' && computerMove === 'paper')
-    ) {
-        updateResultElement('win');
-        updateScore('win');
-    }
-    
-    else {
-        updateResultElement('loss');
-        updateScore('loss');
-    }
-
-    updateMovesElement(playerMove, computerMove);
-}
-
-document.querySelectorAll('.js-emoji-btn').forEach((btnElement) => {
-    btnElement.addEventListener('click', () => {
-        const playerMove = btnElement.dataset.emoji;
-        playMove(playerMove);
-    });
-});
-
-document.querySelector('.js-reset-btn').addEventListener('click', () => {
-    localStorage.setItem('score', JSON.stringify({
-        wins: 0,
-        ties: 0,
-        losses: 0
-    }));
-    updateScoreElement();
-});
