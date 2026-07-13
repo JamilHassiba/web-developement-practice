@@ -5,6 +5,12 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+		<link rel="stylesheet" href="styles.css">
 	</head>
 	<body>
     <header>
@@ -12,16 +18,18 @@
 		</header>
 
 		<main>
-			<section>
-				<div>
-					<img src="images/products/athletic-cotton-socks-6-pairs.jpg">
-					<div>Black and Gray Athletic Cotton Socks - 6 Pairs</div>
-					<div>
-						<img src="images/ratings/rating-45.png">
-						<div>87</div>
+			<section class="product-grid">
+				<div class="product-container">
+					<div class="product-image-container">
+						<img class="product-image" src="images/products/athletic-cotton-socks-6-pairs.jpg">
 					</div>
-					<div>$10.90</div>
-					<select name="">
+					<div class="product-name">Black and Gray Athletic Cotton Socks - 6 Pairs</div>
+					<div class="product-rating-container">
+						<img class="product-stars-rating" src="images/ratings/rating-45.png">
+						<div class="product-rating-count">87</div>
+					</div>
+					<div class="product-price">$10.90</div>
+					<select class="product-count-selector">
 						<option selected value="1">1</option>
 						<option value="2">2</option>
 						<option value="3">3</option>
@@ -33,7 +41,7 @@
 						<option value="9">9</option>
 						<option value="10">10</option>
 					</select>
-					<button>Add to Cart</button>
+					<button class="add-to-cart-button">Add to Cart</button>
 				</div>
 			</section>
 		</main>
