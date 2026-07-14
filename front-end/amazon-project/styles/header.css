@@ -56,6 +56,10 @@
     margin-top: 5px;
 }
 
+.amazon-logo-mobile {
+    width: 35px;
+}
+
 .search-bar {
     flex: 1;
     height: 30px;
@@ -90,13 +94,17 @@
 }
 
 @media (max-width: 575px) {
-    .middle-section {
-        margin-left: 15px;
-        margin-right: 15px;
+    .amazon-logo {
+        display: none;
     }
 
-    .returns-orders-container {
-        display: none;
+    .amazon-logo-mobile {
+        display: block;
+    }
+
+    .middle-section {
+        margin-left: 5px;
+        margin-right: 15px;
     }
 }
 
