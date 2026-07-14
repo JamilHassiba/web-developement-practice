@@ -10,11 +10,34 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 
-		<link rel="stylesheet" href="styles.css">
+		<link rel="stylesheet" href="styles/general.css">
+		<link rel="stylesheet" href="styles/header.css">
+		<link rel="stylesheet" href="styles/main.css">
 	</head>
 	<body>
-    <header>
-
+    <header class="amazon-header">
+			<div class="left-section">
+				<a class="header-link" href=".">
+					<img class="amazon-logo" src="images/amazon-logo-white.png">
+				</a>
+			</div>
+			<div class="middle-section">
+				<input class="search-bar" type="text" placeholder="Search">
+				<button class="search-button">
+					<img class="search-icon" src="images/icons/search-icon.png">
+				</button>
+			</div>
+			<div class="right-section">
+				<a class="header-link returns-orders-container" href="">
+					<div class="returns-text">Returns</div>
+					<div class="orders-text">& Orders</div>
+				</a>
+				<a class="header-link cart-container" href="">
+					<div class="cart-item-count">0</div>
+					<img class="cart-icon" src="images/icons/cart-icon.png">
+					<div class="cart-text">Cart</div>
+				</a>
+			</div>
 		</header>
 
 		<main>
