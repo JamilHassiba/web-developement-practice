@@ -119,9 +119,29 @@
     border: 2px solid orange;
 }
 
+.added-to-cart {
+    display: flex;
+    align-items: flex-start;
+    column-gap: 5px;
+    margin-top: 20px;
+    opacity: 0;
+}
+
+.added-to-cart-shown {
+    opacity: 1;
+}
+
+.added-to-cart img {
+    width: 20px;
+}
+
+.added-to-cart span {
+    color: rgb(6, 125, 98);
+}
+
 .add-to-cart-button {
     color: rgb(33, 33, 33);
-    margin-top: 45px;
+    margin-top: 5px;
     width: 100%;
     background-color: rgb(255, 216, 20);
     border: 1px solid rgb(248, 206, 0);
