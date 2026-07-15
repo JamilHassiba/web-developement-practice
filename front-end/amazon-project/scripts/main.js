@@ -69,5 +69,15 @@ document.querySelectorAll('.js-add-to-cart-button')
           quantity
         });
       }
+      
+      // Calculate total cart quantity
+      let cartQuantity = 0;
+      cart.forEach((product) => {
+        cartQuantity += product.quantity;
+      });
+
+      // Update header cart quantity
+      document.querySelector('.cart-quantity')
+        .innerText = cartQuantity;
     });
   });
