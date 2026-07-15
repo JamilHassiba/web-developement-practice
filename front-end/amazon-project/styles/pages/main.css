@@ -103,7 +103,6 @@
 }
 
 .product-quantity-selector {
-    font-family: 'Roboto', Arial;
     font-size: 15px;
     margin-top: 10px;
     border: 1px solid rgb(220, 220, 220);
@@ -111,12 +110,10 @@
     background-color: rgb(240, 240, 240);
     padding: 3px 5px;
     box-shadow: 0 2px 5px rgba(213, 217, 217, 0.5);
-    cursor: pointer;
 }
 
 .product-quantity-selector:focus {
-    outline: none;
-    border: 2px solid orange;
+    outline: 2px solid orange;
 }
 
 .added-to-cart {
@@ -140,26 +137,8 @@
 }
 
 .add-to-cart-button {
-    color: rgb(33, 33, 33);
     margin-top: 5px;
     width: 100%;
-    background-color: rgb(255, 216, 20);
-    border: 1px solid rgb(248, 206, 0);
-    font-size: 13px;
-    font-weight: 300;
     padding: 8px;
     border-radius: 50px;
-    box-shadow: 0 2px 5px rgba(213, 217, 217, 0.5);
-    cursor: pointer;
-}
-
-.add-to-cart-button:hover {
-    background-color: rgb(247, 202, 0);
-    border-color: rgb(242, 194, 0);
-}
-
-.add-to-cart-button:active {
-    background: rgb(255, 216, 20);
-    border-color: rgb(248, 206, 0);
-    box-shadow: none;
 }

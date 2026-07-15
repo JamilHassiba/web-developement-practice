@@ -34,7 +34,7 @@ products.forEach((product) => {
         <img src=images/icons/checkmark.png>
         <span>Added</span>
       </div>
-      <button class="add-to-cart-button js-add-to-cart-button" 
+      <button class="add-to-cart-button primary-button js-add-to-cart-button" 
       data-product-id="${product.id}">
         Add to Cart
       </button>
@@ -62,7 +62,7 @@ function updateCartQuantity() {
     });
 
   // Update header cart quantity
-  document.querySelector('.cart-quantity')
+  document.querySelector('.header-cart-quantity')
     .innerText = cartQuantity;
 }
 
