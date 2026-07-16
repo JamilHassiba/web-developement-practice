@@ -1,0 +1,87 @@
+.checkout-item-container {
+    display: flex;
+    flex-direction: column;
+    width: 700px;
+    height: 250px;
+    padding: 20px;
+
+    border: 1px solid rgb(222, 222, 222);
+    border-radius: 4px;
+}
+
+.selected-date {
+    margin-bottom: 20px;
+    color: rgb(0, 118, 0);
+    font-weight: bold;
+    font-size: 19px;
+}
+
+.inner-container {
+    display: flex;
+    flex-direction: row;
+    column-gap: 25px;
+}
+
+.item-image-container {
+    height: 100%;
+    width: 100px;
+}
+
+.item-image-container img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.item-description-container {
+    flex: 1;
+}
+
+.item-name {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.item-price {
+    color: rgb(177, 39, 4);
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.item-quantity {
+    color: rgb(33, 33, 33);
+}
+
+.delivery-options-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+}
+
+.delivery-option-title {
+    font-weight: bold;
+}
+
+.delivery-option-container {
+    display: flex;
+}
+
+.delivery-option-container input {
+    width: 19px;
+    margin-right: 5px;
+}
+
+.delivery-option-container input:focus {
+    outline: 2px solid orange;
+}
+
+.delivery-option-date {
+    font-weight: bold;
+    color: rgb(0, 118, 0);
+    margin-bottom: 3px;
+}
+
+.delivery-option-shipping {
+    font-size: 15px;
+    color: rgb(120, 120, 120);
+}
