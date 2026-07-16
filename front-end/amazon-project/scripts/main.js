@@ -8,7 +8,7 @@ products.forEach((product) => {
       <div class="product-image-container">
         <img class="product-image" src="${product.image}">
       </div>
-      <div class="product-name">${product.name}</div>
+      <div class="product-name two-line-limit">${product.name}</div>
       <div class="product-rating-container">
         <img class="product-stars-rating" 
         src="images/ratings/rating-${product.rating.stars * 10}.png">

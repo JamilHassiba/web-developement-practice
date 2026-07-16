@@ -16,6 +16,14 @@ input, select, button {
   font-family: Roboto, Arial;
 }
 
+.two-line-limit {
+    display: -webkit-box;
+    line-clamp: 2;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
 .primary-button {
     color: rgb(33, 33, 33);
     background-color: rgb(255, 216, 20);
