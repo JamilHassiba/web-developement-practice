@@ -3,10 +3,34 @@ body {
     padding-right: 30px;
 }
 
-.checkout-flex {
+.content-container {
     display: flex;
     justify-content: center;
+}
+
+.title-and-containers-flex {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.checkout-title {
+    text-align: left;
+    font-size: 22px;
+    color: rgb(33, 33, 33);
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.items-and-summary-flex {
+    display: flex;
     column-gap: 10px;
+}
+
+.checkout-items {
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
 }
 
 .checkout-item-container {
@@ -99,6 +123,7 @@ body {
 
 .order-summary-container {
     flex-shrink: 0;
+    align-self: flex-start;
     display: flex;
     flex-direction: column;
     row-gap: 10px;
