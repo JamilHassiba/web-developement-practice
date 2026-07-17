@@ -1,0 +1,55 @@
+.header-flex {
+    display: flex;
+    justify-content: center;
+
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    height: 60px;
+
+    padding: 0 10px;
+    background-color: white;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 1055px;
+}
+
+.amazon-logo {
+    width: 100px;
+    margin-top: 5px;
+}
+
+.amazon-logo-mobile {
+    width: 35px;
+}
+
+@media (max-width: 575px) {
+    .amazon-logo {
+        display: none;
+    }
+
+    .amazon-logo-mobile {
+        display: block;
+    }
+}
+
+.header-title {
+    font-size: 25px;
+    font-weight: 500;
+}
+
+.header-title span {
+    color: rgb(0, 113, 133);
+    font-size: 23px;
+}
+
+.lock-icon-container {
+    width: 100px;
+    display: flex;
+    justify-content: flex-end;
+}

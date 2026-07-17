@@ -1,6 +1,5 @@
 body {
-    padding-left: 30px;
-    padding-right: 30px;
+    padding: 140px 30px 100px 30px;
 }
 
 .content-container {
@@ -37,7 +36,7 @@ body {
     display: flex;
     flex-direction: column;
     max-width: 700px;
-    height: 250px;
+    height: 225px;
     padding: 20px;
 
     border: 1px solid rgb(222, 222, 222);
@@ -111,7 +110,7 @@ body {
 }
 
 .delivery-option-date {
-    font-weight: bold;
+    font-weight: 500;
     color: rgb(0, 118, 0);
     margin-bottom: 3px;
 }
