@@ -35,7 +35,6 @@ body {
 .checkout-item-container {
     display: flex;
     flex-direction: column;
-    max-width: 700px;
     height: 225px;
     padding: 20px;
 
@@ -164,4 +163,37 @@ body {
 .place-order-button {
     padding: 12px 6px;
     border-radius: 10px;
+}
+
+@media (max-width: 980px) {
+    .items-and-summary-flex {
+        flex-direction: column;
+        row-gap: 10px;
+    }
+
+    .checkout-item-container {
+        width: 450px;
+        height: auto;
+        padding-bottom: 30px;
+    }
+
+    .inner-container {
+        flex-wrap: wrap;
+        row-gap: 15px;
+    }
+
+    .item-image-container {
+        height: 120px;
+        width: 120px;
+    }
+
+    .delivery-options-container {
+        flex-basis: 100%;
+        margin-top: 20px;
+    }
+
+    .order-summary-container {
+        order: -1;
+        width: 454px;
+    }
 }
