@@ -7,22 +7,17 @@ export function addToCart(id) {
   );
   
   // Check if product is already in cart
-  let matchingProduct;
-  cart.forEach((product) => {
-    if (product.id === id) {
-      matchingProduct = product;
-    }
-  });
+  let matchingItem = cart.find((cartItem) => cartItem.id === id);
 
   // Increase product quantity if already in cart
-  if (matchingProduct) {
-    matchingProduct.quantity += quantity;
+  if (matchingItem) {
+    matchingItem.quantity += quantity;
   }
   // Add to cart otherwise
   else {
     cart.push({
       id,
-      quantity
+      quantity,
     });
   }
 

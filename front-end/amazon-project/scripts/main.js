@@ -57,10 +57,10 @@ document.querySelectorAll('.js-add-to-cart-button')
 
 function updateCartQuantity() {
   // Calculate total cart quantity
-    let cartQuantity = 0;
-    cart.forEach((product) => {
-      cartQuantity += product.quantity;
-    });
+  let cartQuantity = cart.reduce(
+    (total, cartItem) => total + cartItem.quantity,
+    0
+  );
 
   // Update header cart quantity
   document.querySelector('.header-cart-quantity')
