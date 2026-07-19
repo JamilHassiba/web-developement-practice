@@ -57,8 +57,21 @@ document.querySelectorAll('.js-delete-link')
     deleteLinkElem.addEventListener('click', () => {
       const deleteItemId = deleteLinkElem.dataset.id;
       removeFromCart(deleteItemId);
+      updateCartQuantity();
+      
       document.querySelector(
         `.js-checkout-item-container-${deleteItemId}`
       ).remove();
     });
   });
+
+function updateCartQuantity() {
+  const cartQuantity = cart.reduce(
+    (total, cartItem) => total + cartItem.quantity,
+    0
+  );
+
+  document.querySelector('.js-header-quantity').innerText = cartQuantity;
+}
+
+updateCartQuantity();
