@@ -38,3 +38,12 @@ input, select, button {
     border-color: rgb(248, 206, 0);
     box-shadow: none;
 }
+
+.link {
+  color: #017cb6;
+  cursor: pointer;
+}
+
+.link:hover {
+  color: rgb(196, 80, 0);
+}

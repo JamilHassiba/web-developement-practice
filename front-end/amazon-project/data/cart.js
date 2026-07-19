@@ -26,3 +26,7 @@ export function addToCart(id) {
     });
   }
 }
+
+export function removeFromCart(id) {
+  cart = cart.filter(cartItem => cartItem.id !== id );
+}
