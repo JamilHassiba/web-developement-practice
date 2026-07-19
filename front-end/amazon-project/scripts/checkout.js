@@ -20,21 +20,21 @@ cart.forEach((cartItem) => {
             <div class="delivery-options-container">
               <div class="delivery-option-title">Choose a delivery option:</div>
               <div class="delivery-option-container">
-                <input type="radio">
+                <input type="radio" name="${product.id}">
                 <div>
                   <div class="delivery-option-date">Monday, July 27</div>
                   <div class="delivery-option-shipping">FREE Shipping</div>
                 </div>
               </div>
               <div class="delivery-option-container">
-                <input type="radio">
+                <input type="radio" name="${product.id}">
                 <div>
                   <div class="delivery-option-date">Tuesday, July 21</div>
                   <div class="delivery-option-shipping">$4.99 - Shipping</div>
                 </div>
               </div>
               <div class="delivery-option-container">
-                <input type="radio">
+                <input type="radio" name="${product.id}">
                 <div>
                   <div class="delivery-option-date">Friday, July 17</div>
                   <div class="delivery-option-shipping">$9.99 - Shipping</div>
