@@ -1,4 +1,4 @@
-import { cart, removeFromCart } from '../data/cart.js';
+import { calculateCartQuantity, cart, removeFromCart } from '../data/cart.js';
 import { products } from '../data/products.js';
 import { formatPrice } from './utilities/money.js';
 
@@ -58,7 +58,7 @@ document.querySelectorAll('.js-delete-link')
       const deleteItemId = deleteLinkElem.dataset.id;
       removeFromCart(deleteItemId);
       updateCartQuantity();
-      
+
       document.querySelector(
         `.js-checkout-item-container-${deleteItemId}`
       ).remove();
@@ -66,11 +66,7 @@ document.querySelectorAll('.js-delete-link')
   });
 
 function updateCartQuantity() {
-  const cartQuantity = cart.reduce(
-    (total, cartItem) => total + cartItem.quantity,
-    0
-  );
-
+  const cartQuantity = calculateCartQuantity();
   document.querySelector('.js-header-quantity').innerText = cartQuantity;
 }
 

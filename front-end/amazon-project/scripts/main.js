@@ -1,5 +1,5 @@
 import { products } from "../data/products.js";
-import { cart, addToCart } from "../data/cart.js";
+import { cart, addToCart, calculateCartQuantity } from "../data/cart.js";
 import { formatPrice } from "./utilities/money.js";
 
 let productsHTML = '';
@@ -57,15 +57,14 @@ document.querySelectorAll('.js-add-to-cart-button')
 
 function updateCartQuantity() {
   // Calculate total cart quantity
-  let cartQuantity = cart.reduce(
-    (total, cartItem) => total + cartItem.quantity,
-    0
-  );
+  const cartQuantity = calculateCartQuantity();
 
   // Update header cart quantity
   document.querySelector('.header-cart-quantity')
     .innerText = cartQuantity;
 }
+
+updateCartQuantity();
 
 function displayAddedMessage(id) {
   const addedElement = document.querySelector(`.js-added-to-cart-${id}`)

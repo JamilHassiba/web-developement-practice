@@ -29,6 +29,10 @@ export function removeFromCart(id) {
   saveToStorage();
 }
 
+export function calculateCartQuantity() {
+  return cart.reduce((total, cartItem) => total + cartItem.quantity, 0);
+}
+
 function saveToStorage() {
   localStorage.setItem('cart', JSON.stringify(cart));
 }
