@@ -197,3 +197,14 @@ body {
         width: 454px;
     }
 }
+
+.empty-cart-container {
+    width: 705px;
+}
+
+.view-products-button {
+    padding: 8px 15px;
+    border-radius: 8px;
+    font-size: 16px;
+    margin-top: 10px;
+} 
