@@ -1,6 +1,7 @@
 import { products } from '../../data/products.js';
 import { formatPrice } from '../utilities/money.js';
 import { deliveryOptions } from '../../data/deliveryOptions.js';
+import renderPaymentSummary from "../checkout/paymentSummary.js";
 import dayjs from 'https://unpkg.com/supersimpledev@8.5.0/dayjs/esm/index.js';
 import {
   cart,
@@ -85,6 +86,7 @@ export default function renderOrderSummary() {
         const {cartItemId, selectedDeliveryId} = optionElem.dataset;
         updateItemDeliveryId(cartItemId, selectedDeliveryId);
         renderOrderSummary();
+        renderPaymentSummary();
       });
     });
 
@@ -127,6 +129,7 @@ export default function renderOrderSummary() {
         const itemId = deleteLinkElem.dataset.id;
         removeFromCart(itemId);
         renderOrderSummary();
+        renderPaymentSummary();
       });
     });
 
@@ -142,11 +145,13 @@ export default function renderOrderSummary() {
     if (inputedQuantity === 0) {
       removeFromCart(itemId);
       renderOrderSummary();
+      renderPaymentSummary();
     } else if (inputedQuantity < 0) {
       alert("Not a valid quantity");
     } else {
       updateItemQuantity(itemId, inputedQuantity);
       renderOrderSummary();
+      renderPaymentSummary();
     }
   }
 
