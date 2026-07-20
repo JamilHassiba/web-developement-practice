@@ -24,13 +24,18 @@ export function addToCart(id) {
   saveToStorage();
 }
 
-export function removeFromCart(id) {
-  cart = cart.filter(cartItem => cartItem.id !== id );
+export function removeFromCart(itemId) {
+  cart = cart.filter(cartItem => cartItem.id !== itemId);
   saveToStorage();
 }
 
 export function calculateCartQuantity() {
   return cart.reduce((total, cartItem) => total + cartItem.quantity, 0);
+}
+
+export function updateItemQuantity(itemId, newQuantity) {
+  cart.find((cartItem) => cartItem.id === itemId).quantity = newQuantity;
+  saveToStorage();
 }
 
 function saveToStorage() {

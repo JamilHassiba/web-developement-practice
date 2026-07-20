@@ -8,8 +8,11 @@ p {
     margin: 0;
 }
 
-input, select, button {
+select, button {
   cursor: pointer;
+}
+
+input, select, button {
   font-family: Roboto, Arial;
 }
 

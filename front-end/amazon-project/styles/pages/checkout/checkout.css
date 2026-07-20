@@ -76,8 +76,33 @@ main {
     margin-bottom: 5px;
 }
 
-.item-quantity {
+.item-quantity-container {
     color: rgb(33, 33, 33);
+}
+
+.quantity-input {
+    display: none;
+    width: 55px;
+    padding: 1px 2px;
+    font-size: 16px;
+}
+
+.quantity-input:focus {
+    outline-color: orange;
+}
+
+.save-link {
+    display: none;
+}
+
+.is-editing-quantity .update-link,
+.is-editing-quantity .item-quantity-label {
+    display: none;
+}
+
+.is-editing-quantity .quantity-input,
+.is-editing-quantity .save-link {
+    display: initial;
 }
 
 .delivery-options-container {
@@ -98,6 +123,7 @@ main {
 .delivery-option-container input {
     width: 19px;
     margin-right: 5px;
+    cursor: pointer;
 }
 
 .delivery-option-container input:focus {
