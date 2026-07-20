@@ -1,4 +1,4 @@
-import { cart, removeFromCart, calculateCartQuantity, updateItemQuantity } from '../data/cart.js';
+import { cart, removeFromCart, calculateCartQuantity, updateItemQuantity, updateItemDeliveryId} from '../data/cart.js';
 import { products } from '../data/products.js';
 import { formatPrice } from './utilities/money.js';
 import { deliveryOptions } from '../data/deliveryOptions.js';
@@ -6,10 +6,10 @@ import dayjs from 'https://unpkg.com/supersimpledev@8.5.0/dayjs/esm/index.js';
 
 let cartHTML = '';
 cart.forEach((cartItem) => {
-  let matchingProduct = products.find((product) => cartItem.id === product.id);
+  let matchingProduct = products.find(product => cartItem.id === product.id);
   cartHTML += `
     <div class="checkout-item-container js-checkout-item-container-${matchingProduct.id}">
-      <div class="selected-date">Delivery date: Tuesday, July 21</div>
+      <div class="selected-date js-selected-date"></div>
       <div class="checkout-item-inner-grid">
         <div class="item-image-container">
           <img src=${matchingProduct.image}>
@@ -37,6 +37,23 @@ cart.forEach((cartItem) => {
 });
 
 document.querySelector('.js-checkout-items').innerHTML = cartHTML;
+
+cart.forEach((cartItem) => {
+  const containerElem = document.querySelector(`.js-checkout-item-container-${cartItem.id}`);
+  containerElem.querySelector('.js-selected-date')
+    .innerText = getDeliveryDate(cartItem.deliveryOptionId);
+  
+  containerElem.querySelectorAll('.js-delivery-option-container')
+    .forEach((optionElem) => {
+      optionElem.addEventListener('click', () => {
+        optionElem.querySelector('input').checked = true;
+        const selectedDeliveryId = containerElem.querySelector('input:checked').value
+        updateItemDeliveryId(cartItem.id, selectedDeliveryId);
+        containerElem.querySelector('.js-selected-date')
+          .innerText = getDeliveryDate(selectedDeliveryId);
+      });
+    });
+});
 
 document.querySelectorAll('.js-update-link')
   .forEach((updateLinkElem) => {
@@ -110,9 +127,7 @@ function saveQuantity(itemId) {
 function generateDeliveryHTML(product, cartItem) {
   let html = '';
   deliveryOptions.forEach((deliveryOption) => {
-    const today = dayjs();
-    const deliveryDate = today.add(deliveryOption.deliveryDays, 'days');
-    const dateString = deliveryDate.format('dddd, MMMM D');
+    const dateString = getDeliveryDate(deliveryOption.id);
 
     const price = Number(formatPrice(deliveryOption.priceCents));
     let priceString;
@@ -125,8 +140,8 @@ function generateDeliveryHTML(product, cartItem) {
     const isChecked = cartItem.deliveryOptionId === deliveryOption.id ? 'checked' : '';
 
     html += `
-      <div class="delivery-option-container">
-        <input type="radio" name="${product.id}" ${isChecked}>
+      <div class="delivery-option-container js-delivery-option-container">
+        <input type="radio" name="${product.id}" value="${deliveryOption.id}" ${isChecked}>
         <div>
           <div class="delivery-option-date">${dateString}</div>
           <div class="delivery-option-shipping">${priceString}</div>
@@ -135,4 +150,11 @@ function generateDeliveryHTML(product, cartItem) {
     `;
   });
   return html;
+}
+
+function getDeliveryDate(deliveryOptionId) {
+  const deliveryOption = deliveryOptions.find(option => option.id === deliveryOptionId);
+  const today = dayjs();
+  const deliveryDate = today.add(deliveryOption.deliveryDays, 'days');
+  return deliveryDate.format('dddd, MMMM D');
 }

@@ -35,7 +35,12 @@ export function calculateCartQuantity() {
 }
 
 export function updateItemQuantity(itemId, newQuantity) {
-  cart.find((cartItem) => cartItem.id === itemId).quantity = newQuantity;
+  cart.find(cartItem => cartItem.id === itemId).quantity = newQuantity;
+  saveToStorage();
+}
+
+export function updateItemDeliveryId(itemId, deliveryOptionId) {
+  cart.find(cartItem => cartItem.id === itemId).deliveryOptionId = deliveryOptionId;
   saveToStorage();
 }
 

@@ -118,6 +118,7 @@ main {
 
 .delivery-option-container {
     display: flex;
+    cursor: pointer;
 }
 
 .delivery-option-container input {
