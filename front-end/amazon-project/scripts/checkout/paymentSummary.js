@@ -2,8 +2,7 @@ import { cart, calculateCartQuantity } from '../../data/cart.js';
 import { products } from '../../data/products.js';
 import { formatPrice } from '../utilities/money.js';
 import { deliveryOptions } from '../../data/deliveryOptions.js';
-
-const TAX = 0.1;
+import { TAX } from '../../data/tax.js';
 
 export default function renderPaymentSummary() {
   let paymentHTML = `
