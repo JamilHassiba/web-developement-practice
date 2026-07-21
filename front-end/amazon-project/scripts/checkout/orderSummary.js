@@ -1,8 +1,8 @@
 import { products } from '../data/products.js';
-import { formatPrice } from '../utilities/money.js';
+import { formatPrice } from '../utils/moneyUtils.js';
+import { getDeliveryDate } from '../utils/dateUtils.js';
 import { deliveryOptions } from '../data/deliveryOptions.js';
 import renderPaymentSummary from "../checkout/paymentSummary.js";
-import dayjs from 'https://unpkg.com/supersimpledev@8.5.0/dayjs/esm/index.js';
 import {
   cart,
   removeFromCart,
@@ -13,7 +13,7 @@ import {
 
 export default function renderOrderSummary() {
   // Update the header's cart quantity
-  updateCartQuantity();
+  updateHeaderQuantity();
   
   // Render each cart item summary
   let cartHTML = '';
@@ -143,7 +143,7 @@ export default function renderOrderSummary() {
       });
     });
 
-  function updateCartQuantity() {
+  function updateHeaderQuantity() {
     document.querySelector('.js-header-quantity').innerText = calculateCartQuantity();
   }
 
@@ -164,23 +164,4 @@ export default function renderOrderSummary() {
       renderPaymentSummary();
     }
   }
-
-  function getDeliveryDate(deliveryOptionId) {
-    const deliveryOption = deliveryOptions.find(option => option.id === deliveryOptionId);
-    const today = dayjs();
-
-    // Skip weekends
-    let deliveryDate = today;
-    let deliveryDays = 0;
-    while (deliveryDays < deliveryOption.deliveryDays) {
-      deliveryDate = deliveryDate.add(1, 'days');
-      const weekDay = deliveryDate.format('dddd');
-      if (weekDay !== 'Saturday' && weekDay !== 'Sunday') {
-        deliveryDays++;
-      }
-    }
-
-    return deliveryDate.format('dddd, MMMM D');
-  }
-
 }

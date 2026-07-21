@@ -1,7 +1,14 @@
 import { cart, calculateCartQuantity } from '../data/cart.js';
 import { products } from '../data/products.js';
-import { formatPrice, TAX_Rate } from '../utilities/money.js';
+import { formatPrice } from '../utils/moneyUtils.js';
 import { deliveryOptions } from '../data/deliveryOptions.js';
+import {
+  calculateItemsTotal,
+  calculateDeliveryTotal,
+  calculateBeforeTaxTotal,
+  calculateTax,
+  calculateOrderTotal
+} from './paymentCalculations.js';
 
 export default function renderPaymentSummary() {
   let paymentHTML = `
@@ -38,32 +45,5 @@ export default function renderPaymentSummary() {
   } else {
     document.querySelector('.js-place-order-button')
       .classList.remove('place-order-button-empty');
-  }
-
-  function calculateItemsTotal() {
-    return cart.reduce((total, cartItem) => {
-        const matchingProduct = products.find(product => product.id === cartItem.id);
-        return total + matchingProduct.priceCents * cartItem.quantity;
-      }, 0);
-  }
-
-  function calculateDeliveryTotal() {
-    return cart.reduce((total, cartItem) => {
-        const deliveryOption = deliveryOptions
-          .find(option => option.id === cartItem.deliveryOptionId);
-        return total + deliveryOption.priceCents;
-      }, 0);
-  }
-
-  function calculateBeforeTaxTotal() {
-    return calculateItemsTotal() + calculateDeliveryTotal();
-  }
-
-  function calculateTax() {
-    return calculateBeforeTaxTotal() * TAX_Rate;
-  }
-
-  function calculateOrderTotal() {
-    return calculateBeforeTaxTotal() + calculateTax();
   }
 }
