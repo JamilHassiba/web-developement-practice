@@ -28,9 +28,19 @@ export default function renderPaymentSummary() {
       <div>Order total:</div>
       <div>$${formatPrice(calculateOrderTotal())}</div>
     </div>
-    <button class="place-order-button primary-button">Place your order</button>
+    <button class="primary-button place-order-button js-place-order-button">
+      Place your order
+    </button>
   `;
   document.querySelector('.js-order-summary-container').innerHTML = paymentHTML;
+
+  if (cart.length === 0) {
+    document.querySelector('.js-place-order-button')
+      .classList.add('place-order-button-empty');
+  } else {
+    document.querySelector('.js-place-order-button')
+      .classList.remove('place-order-button-empty');
+  }
 
   function calculateItemsTotal() {
     return cart.reduce((total, cartItem) => {
@@ -43,7 +53,7 @@ export default function renderPaymentSummary() {
     return cart.reduce((total, cartItem) => {
         const deliveryOption = deliveryOptions
           .find(option => option.id === cartItem.deliveryOptionId);
-        return total + deliveryOption.priceCents * cartItem.quantity;
+        return total + deliveryOption.priceCents;
       }, 0);
   }
 

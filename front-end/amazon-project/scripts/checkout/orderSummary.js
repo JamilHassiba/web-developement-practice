@@ -47,6 +47,16 @@ export default function renderOrderSummary() {
       </div>
     `;
   });
+
+  cartHTML = cartHTML || `
+    <div class="empty-cart-container">
+      <div class="empty-cart-text">Your cart is empty.</div>
+      <a href="index.html">
+        <button class="view-products-button primary-button">View products</button>
+      </a>
+    </div>
+  `;
+
   document.querySelector('.js-checkout-items').innerHTML = cartHTML;
   
   function generateDeliveryHTML(product, cartItem) {
