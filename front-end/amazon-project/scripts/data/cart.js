@@ -1,11 +1,8 @@
-export let cart = JSON.parse((localStorage.getItem('cart'))) || [];
+export let cart;
 
-export function addToCart(id) {
-  // Get selected quantity
-  const quantity = Number(
-    document.querySelector(`.js-product-quantity-selector-${id}`).value
-  );
-  
+loadFromStorage();
+
+export function addToCart(id, quantity=1) {
   // Check if product is already in cart
   let matchingItem = cart.find((cartItem) => cartItem.id === id);
 
@@ -42,6 +39,10 @@ export function updateItemQuantity(itemId, newQuantity) {
 export function updateItemDeliveryId(itemId, deliveryOptionId) {
   cart.find(cartItem => cartItem.id === itemId).deliveryOptionId = deliveryOptionId;
   saveToStorage();
+}
+
+export function loadFromStorage() {
+  cart = JSON.parse((localStorage.getItem('cart'))) || [];
 }
 
 function saveToStorage() {

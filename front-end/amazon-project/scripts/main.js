@@ -49,7 +49,10 @@ document.querySelectorAll('.js-add-to-cart-button')
   .forEach((button) => {
     button.addEventListener('click', () => {
       const id = button.dataset.productId;
-      addToCart(id);
+      const quantity = Number(
+        document.querySelector(`.js-product-quantity-selector-${id}`).value
+      );
+      addToCart(id, quantity);
       updateCartQuantity();
       displayAddedMessage(id);
     });
