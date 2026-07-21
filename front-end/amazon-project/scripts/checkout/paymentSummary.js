@@ -1,8 +1,8 @@
-import { cart, calculateCartQuantity } from '../../data/cart.js';
-import { products } from '../../data/products.js';
+import { cart, calculateCartQuantity } from '../data/cart.js';
+import { products } from '../data/products.js';
 import { formatPrice } from '../utilities/money.js';
-import { deliveryOptions } from '../../data/deliveryOptions.js';
-import { TAX } from '../../data/tax.js';
+import { deliveryOptions } from '../data/deliveryOptions.js';
+import { TAX } from '../data/tax.js';
 
 export default function renderPaymentSummary() {
   let paymentHTML = `

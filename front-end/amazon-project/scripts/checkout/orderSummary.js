@@ -1,6 +1,6 @@
-import { products } from '../../data/products.js';
+import { products } from '../data/products.js';
 import { formatPrice } from '../utilities/money.js';
-import { deliveryOptions } from '../../data/deliveryOptions.js';
+import { deliveryOptions } from '../data/deliveryOptions.js';
 import renderPaymentSummary from "../checkout/paymentSummary.js";
 import dayjs from 'https://unpkg.com/supersimpledev@8.5.0/dayjs/esm/index.js';
 import {
@@ -9,7 +9,7 @@ import {
   calculateCartQuantity,
   updateItemQuantity,
   updateItemDeliveryId,
-} from '../../data/cart.js';
+} from '../data/cart.js';
 
 export default function renderOrderSummary() {
   // Update the header's cart quantity
