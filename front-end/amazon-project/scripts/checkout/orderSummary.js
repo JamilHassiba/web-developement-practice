@@ -168,7 +168,18 @@ export default function renderOrderSummary() {
   function getDeliveryDate(deliveryOptionId) {
     const deliveryOption = deliveryOptions.find(option => option.id === deliveryOptionId);
     const today = dayjs();
-    const deliveryDate = today.add(deliveryOption.deliveryDays, 'days');
+
+    // Skip weekends
+    let deliveryDate = today;
+    let deliveryDays = 0;
+    while (deliveryDays < deliveryOption.deliveryDays) {
+      deliveryDate = deliveryDate.add(1, 'days');
+      const weekDay = deliveryDate.format('dddd');
+      if (weekDay !== 'Saturday' && weekDay !== 'Sunday') {
+        deliveryDays++;
+      }
+    }
+
     return deliveryDate.format('dddd, MMMM D');
   }
 
