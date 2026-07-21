@@ -20,7 +20,9 @@ export default function renderOrderSummary() {
   cart.forEach((cartItem) => {
     let matchingProduct = products.find(product => cartItem.id === product.id);
     cartHTML += `
-      <div class="checkout-item-container js-checkout-item-container-${matchingProduct.id}">
+      <div class="checkout-item-container
+        js-checkout-item-container
+        js-checkout-item-container-${matchingProduct.id}">
         <div class="selected-date">Delivery date: ${getDeliveryDate(cartItem.deliveryOptionId)}</div>
         <div class="checkout-item-inner-grid">
           <div class="item-image-container">
@@ -29,14 +31,18 @@ export default function renderOrderSummary() {
           <div class="item-description-container">
             <div class="item-name">${matchingProduct.name}</div>
             <div class="item-price">$${formatPrice(matchingProduct.priceCents)}</div>
-            <div class="item-quantity-container">
+            <div class="item-quantity-container js-item-quantity-container-${matchingProduct.id}">
               Quantity: 
                 <span class="item-quantity-label js-item-quantity-label">${cartItem.quantity}</span>
                 <span class="link update-link js-update-link" data-id="${matchingProduct.id}">Update</span>
                 <input type="number" class="quantity-input js-quantity-input"
                   data-id="${matchingProduct.id}" min="0">
                 <span class="link save-link js-save-link" data-id="${matchingProduct.id}">Save</span>
-                <span class="link js-delete-link" data-id="${matchingProduct.id}">Delete</span>
+                <span class="link js-delete-link
+                  js-delete-link-${matchingProduct.id}"
+                  data-id="${matchingProduct.id}">
+                  Delete
+                </span>
             </div>
           </div>
           <div class="delivery-options-container">
