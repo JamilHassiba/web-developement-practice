@@ -1,8 +1,7 @@
 import { cart, calculateCartQuantity } from '../data/cart.js';
 import { products } from '../data/products.js';
-import { formatPrice } from '../utilities/money.js';
+import { formatPrice, TAX_Rate } from '../utilities/money.js';
 import { deliveryOptions } from '../data/deliveryOptions.js';
-import { TAX } from '../data/tax.js';
 
 export default function renderPaymentSummary() {
   let paymentHTML = `
@@ -61,7 +60,7 @@ export default function renderPaymentSummary() {
   }
 
   function calculateTax() {
-    return calculateBeforeTaxTotal() * TAX;
+    return calculateBeforeTaxTotal() * TAX_Rate;
   }
 
   function calculateOrderTotal() {
