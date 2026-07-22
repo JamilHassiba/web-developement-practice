@@ -12,11 +12,11 @@ products.forEach((product) => {
       <div class="product-name two-line-limit">${product.name}</div>
       <div class="product-rating-container">
         <img class="product-stars-rating" 
-        src="images/ratings/rating-${product.rating.stars * 10}.png">
+        src="${product.getStarsURL()}">
         <div class="product-rating-count">${product.rating.count}</div>
       </div>
       <div class="product-price">
-        $${formatPrice(product.priceCents)}
+        $${product.getPrice()}
       </div>
       <select class="product-quantity-selector 
       js-product-quantity-selector-${product.id}">
