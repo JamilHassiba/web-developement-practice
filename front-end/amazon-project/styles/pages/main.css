@@ -98,6 +98,7 @@
 .product-quantity-selector {
     font-size: 15px;
     margin-top: 10px;
+    margin-bottom: 15px;
     border: 1px solid rgb(220, 220, 220);
     border-radius: 7px;
     background-color: rgb(240, 240, 240);
@@ -109,11 +110,15 @@
     outline: 2px solid orange;
 }
 
+.product-spacer {
+    flex: 1;
+}
+
 .added-to-cart {
     display: flex;
     align-items: flex-start;
     column-gap: 5px;
-    margin-top: 20px;
+    margin-top: 5px;
     opacity: 0;
 }
 
